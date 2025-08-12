@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Defines the document type as HTML5 -->
+<html lang="en"> <!-- Sets language to English -->
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Waylon Tay • Data Analyst</title>
-  <meta name="description" content="Waylon Tay — Data Analyst(SQL, Python, Power BI, ArcGIS Pro)." />
+  <meta charset="utf-8" /> <!-- Ensures proper text encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Makes site mobile responsive -->
+  <title>Waylon Tay • Data Analyst</title> <!-- Title in browser tab -->
+  <meta name="description" content="Waylon Tay — Data Analyst(SQL, Python, Power BI, ArcGIS Pro)." /> <!-- Short SEO description -->
+  
+  <!-- Simple favicon in SVG format -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230055ff'/%3E%3Ctext x='50' y='58' font-family='Arial,Helvetica,sans-serif' font-size='54' text-anchor='middle' fill='white'%3EWT%3C/text%3E%3C/svg%3E">
 
   <style>
+    /* ---------- COLOR VARIABLES ---------- */
     :root {
-      --bg: #0b0c10;
-      --text: #e7eaf0;
-      --muted: #b5bcc8;
-      --card: #12141a;
-      --accent: #4f8cff;
-      --accent-2: #7cd1ff;
-      --border: #222633;
-      --shadow: 0 10px 30px rgba(0,0,0,.30);
+      --bg: #0b0c10; /* Dark background */
+      --text: #e7eaf0; /* Main text color */
+      --muted: #b5bcc8; /* Subdued text color */
+      --card: #12141a; /* Card background */
+      --accent: #4f8cff; /* Primary accent color */
+      --accent-2: #7cd1ff; /* Secondary accent color */
+      --border: #222633; /* Border color */
+      --shadow: 0 10px 30px rgba(0,0,0,.30); /* Drop shadow */
     }
     :root.light {
+      /* Light theme overrides */
       --bg: #ffffff;
       --text: #0b1220;
       --muted: #4a5568;
@@ -28,6 +32,8 @@
       --border: #e3e8ef;
       --shadow: 0 6px 18px rgba(0,0,0,.08);
     }
+
+    /* ---------- GLOBAL RESET ---------- */
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -35,58 +41,87 @@
       color: var(--text);
       font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
+
+    /* ---------- LAYOUT ---------- */
     .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    /* ---------- HEADER ---------- */
     header {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: saturate(180%) blur(8px);
+      position: sticky; top: 0; z-index: 10; /* Sticks to top when scrolling */
+      backdrop-filter: saturate(180%) blur(8px); /* Slight blur behind header */
       background: color-mix(in srgb, var(--bg) 84%, transparent);
       border-bottom: 1px solid var(--border);
     }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
     .brand { display:flex; gap:10px; align-items:center; font-weight:800; }
-    .brand-logo { width: 32px; height: 32px; border-radius: 8px; display:grid; place-items:center;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; }
-    .btn { padding: 10px 14px; border:1px solid var(--border); border-radius: 10px; color: var(--text); background: transparent; font-weight: 600; text-decoration:none; display:inline-block; }
+    .brand-logo { 
+      width: 32px; height: 32px; border-radius: 8px; display:grid; place-items:center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; 
+    }
+
+    /* ---------- BUTTONS & TAGS ---------- */
+    .btn { 
+      padding: 10px 14px; border:1px solid var(--border); border-radius: 10px; 
+      color: var(--text); background: transparent; font-weight: 600; 
+      text-decoration:none; display:inline-block; 
+    }
     .btn:hover { background: var(--card); }
     .btn-accent { border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#fff; }
-    .pill { border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-weight:600; color:var(--muted); background: color-mix(in srgb, var(--card) 70%, transparent); }
+    .pill { 
+      border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-weight:600; 
+      color:var(--muted); background: color-mix(in srgb, var(--card) 70%, transparent); 
+    }
     .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
     .spacer { height:16px; }
 
-    /* HERO */
-    .hero { padding: 70px 0 40px; display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items:center; }
+    /* ---------- HERO SECTION ---------- */
+    .hero { 
+      padding: 70px 0 40px; display:grid; grid-template-columns: 1.2fr 0.8fr; 
+      gap: 28px; align-items:center; 
+    }
     .hero h1 { margin:0 0 10px; font-size: clamp(1.8rem, 2.8vw + 1.2rem, 3rem); line-height:1.1; }
     .hero p { margin:0 0 16px; color:var(--muted); }
     .avatar-wrap { display:flex; justify-content:center; }
     .avatar {
-      width: 220px; height: 220px; border-radius: 999px; object-fit: cover; border: 4px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      width: 220px; height: 220px; border-radius: 999px; object-fit: cover; 
+      border: 4px solid color-mix(in srgb, var(--accent) 40%, transparent);
       box-shadow: var(--shadow);
     }
     @media (max-width: 900px) {
+      /* Mobile view adjustments */
       .hero { grid-template-columns: 1fr; text-align:left; }
-      .avatar-wrap { order: -1; }
+      .avatar-wrap { order: -1; } /* Moves image above text */
     }
 
+    /* ---------- FOOTER ---------- */
     footer { padding: 30px 0 60px; color: var(--muted); text-align:center; border-top:1px solid var(--border); }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <div class="container nav">
       <div class="brand">
         <div class="brand-logo">WT</div>
         <div>Waylon Tay</div>
       </div>
-      <button id="themeToggle" class="btn" aria-label="Toggle theme">🌓</button>
+      <button id="themeToggle" class="btn" aria-label="Toggle theme">🌓</button> <!-- Theme toggle button -->
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main>
     <section class="container hero">
       <div>
         <h1>Data Analyst </h1>
-        <p>My name is <strong>Waylon Tay<strong>. I am a data analyst with 5 years of experience in processing and reporting insights from historical data. I have authored 2 research papers and co-authored a NASA project. I uncover information that supports stakeholders in making informed decisions, leveraging my technical expertise in the data analysis workflow. 
+        <p>
+          My name is <strong>Waylon Tay</strong>. 
+          I am a data analyst with 5 years of experience in processing and reporting insights from historical data. 
+          I have authored 2 research papers and co-authored a NASA project. 
+          I uncover information that supports stakeholders in making informed decisions, 
+          leveraging my technical expertise in the data analysis <strong>workflow</strong>. 
         </p>
+        <!-- Skill tags -->
         <div class="row">
           <span class="pill">SQL • CTEs • Window Fx</span>
           <span class="pill">Python • Pandas</span>
@@ -95,6 +130,7 @@
           <span class="pill">ArcGIS Pro • arcpy</span>
         </div>
         <div class="spacer"></div>
+        <!-- Action buttons -->
         <div class="row">
           <a class="btn btn-accent" href="#projects" aria-disabled="true">See Projects</a>
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View Resume</a>
@@ -102,18 +138,21 @@
           <a class="btn" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
+      <!-- Profile image -->
       <div class="avatar-wrap">
         <img class="avatar" src="profile.jpg" alt="Portrait of Weilun Tay" />
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">© <span id="year"></span> Weilun Tay</div>
   </footer>
 
+  <!-- JAVASCRIPT -->
   <script>
-    // Theme toggle
+    // Theme toggle functionality
     const root = document.documentElement;
     const saved = localStorage.getItem('theme');
     if (saved === 'light') root.classList.add('light');
@@ -121,6 +160,7 @@
       root.classList.toggle('light');
       localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
     });
+    // Dynamic year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
