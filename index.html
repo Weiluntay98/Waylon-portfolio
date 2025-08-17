@@ -129,12 +129,19 @@
 .hero h1 { 
   margin: 0 0 10px; 
   font-size: clamp(1.8rem, 2.8vw + 1.2rem, 3rem); 
-  line-height: 1.1; 
+  line-height: 1.1;
+
+  /* NEW: subtle glow effect */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7),
+               0 0 16px rgba(79, 140, 255, 0.6);
 }
 
 .hero p { 
   margin: 0 0 16px; 
-  color: var(--muted); 
+  color: var(--muted);
+
+  /* NEW: softer glow for paragraph */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 .avatar-wrap { 
