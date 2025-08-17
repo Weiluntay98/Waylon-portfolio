@@ -147,8 +147,10 @@
   height: 220px; 
   border-radius: 999px; 
   object-fit: cover; 
-  border: 4px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  box-shadow: var(--shadow);
+
+  /* White border + white glow halo */
+  border: 4px solid #fff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 900px) {
